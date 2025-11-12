@@ -155,7 +155,7 @@
  #define JucePlugin_ARAFactoryID           "com.Yolisses.Modulee.factory"
 #endif
 #ifndef  JucePlugin_ARADocumentArchiveID
- #define JucePlugin_ARADocumentArchiveID   "com.Yolisses.Modulee.aradocumentarchive.0.0.2"
+ #define JucePlugin_ARADocumentArchiveID   "com.Yolisses.Modulee.aradocumentarchive.0.0.3"
 #endif
 #ifndef  JucePlugin_ARACompatibleArchiveIDs
  #define JucePlugin_ARACompatibleArchiveIDs  ""
