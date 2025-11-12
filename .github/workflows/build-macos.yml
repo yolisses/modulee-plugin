@@ -41,5 +41,5 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: ModuleeInstaller
+          name: ModuleeMacOS
           path: Builds/MacOSX/installer/dist/ModuleeInstaller.pkg
