@@ -1,0 +1,43 @@
+name: Build Windows
+on:
+  push:
+    branches:
+      - release
+      - build-windows
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Rust
+        run: rustup target add x86_64-pc-windows-msvc
+
+      - name: Build Rust Component
+        working-directory: Vendor/modulee-engine-clib
+        run: cargo build --release --target x86_64-pc-windows-msvc
+
+      - name: Clone JUCE
+        run: git clone https://github.com/juce-framework/JUCE.git ~/JUCE
+
+      - name: Build Visual Studio Project
+        run: |
+          $env:JUCE_PATH = "$env:USERPROFILE\JUCE"
+          msbuild Builds/VisualStudio2022/Modulee.sln /p:Configuration=Release /p:Platform=x64
+
+      - name: Create Installer
+        run: |
+          cd Builds/VisualStudio2022
+          iscc.exe installer.iss
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ModuleeInstaller
+          path: |
+            Builds/VisualStudio2022/ModuleeInstaller.exe
+            Builds/VisualStudio2022/x64/Release/Standalone Plugin/Modulee.exe
+            Builds/VisualStudio2022/x64/Release/VST3/Modulee.vst3/Contents/x86_64-win/Modulee.vst3
