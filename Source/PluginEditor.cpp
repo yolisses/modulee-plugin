@@ -177,10 +177,11 @@ ModuleeAudioProcessorEditor::getWebviewOptions() {
                     static_cast<int>(std::floor(length / wavelength)) + 2, 1);
                 auto ratio =
                     static_cast<double>(length) / wavelength / multiplier;
-                audioProcessor.oscilloscopeBuffer.setRatio(ratio);
+                audioProcessor.oscilloscopeBuffer.setRatio(
+                    static_cast<float>(ratio));
               })
           .withNativeFunction(
-              "getOscilloscopeData", [this](auto &var, auto complete) {
+              "getOscilloscopeData", [this](auto &, auto complete) {
                 complete(audioProcessor.oscilloscopeBuffer.getDataVar());
               });
 

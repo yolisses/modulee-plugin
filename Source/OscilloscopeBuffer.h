@@ -29,10 +29,10 @@ private:
   float ratio;
   int tail;
 
-  juce::var getVarFromAudioBuffer(const juce::AudioBuffer<float> &buffer) {
-    int numSamples = buffer.getNumSamples();
+  juce::var getVarFromAudioBuffer(const juce::AudioBuffer<float> &audioBuffer) {
+    int numSamples = audioBuffer.getNumSamples();
     int channel = 0;
-    const float *channelData = buffer.getReadPointer(channel);
+    const float *channelData = audioBuffer.getReadPointer(channel);
 
     juce::Array<juce::var> sampleArray;
     sampleArray.ensureStorageAllocated(numSamples);
