@@ -27,9 +27,7 @@ jobs:
         uses: microsoft/setup-msbuild@v2
 
       - name: Build Visual Studio Project
-        run: |
-          $env:JUCE_PATH = "$env:USERPROFILE\JUCE"
-          msbuild Builds/VisualStudio2022/Modulee.sln /p:Configuration=Release /p:Platform=x64
+        run: msbuild Builds/VisualStudio2022/Modulee.sln /p:Configuration=Release /p:Platform=x64 /p:JUCE_PATH="$env:USERPROFILE\JUCE"
 
       - name: Create Installer
         run: |
