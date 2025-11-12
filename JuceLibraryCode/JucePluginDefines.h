@@ -77,13 +77,13 @@
  #define JucePlugin_EditorRequiresKeyboardFocus  1
 #endif
 #ifndef  JucePlugin_Version
- #define JucePlugin_Version                0.0.2
+ #define JucePlugin_Version                0.0.3
 #endif
 #ifndef  JucePlugin_VersionCode
- #define JucePlugin_VersionCode            0x2
+ #define JucePlugin_VersionCode            0x3
 #endif
 #ifndef  JucePlugin_VersionString
- #define JucePlugin_VersionString          "0.0.2"
+ #define JucePlugin_VersionString          "0.0.3"
 #endif
 #ifndef  JucePlugin_VSTUniqueID
  #define JucePlugin_VSTUniqueID            JucePlugin_PluginCode
@@ -155,7 +155,7 @@
  #define JucePlugin_ARAFactoryID           "com.Yolisses.Modulee.factory"
 #endif
 #ifndef  JucePlugin_ARADocumentArchiveID
- #define JucePlugin_ARADocumentArchiveID   "com.Yolisses.Modulee.aradocumentarchive.0.0.1"
+ #define JucePlugin_ARADocumentArchiveID   "com.Yolisses.Modulee.aradocumentarchive.0.0.2"
 #endif
 #ifndef  JucePlugin_ARACompatibleArchiveIDs
  #define JucePlugin_ARACompatibleArchiveIDs  ""
