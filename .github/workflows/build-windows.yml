@@ -23,6 +23,9 @@ jobs:
       - name: Clone JUCE
         run: git clone https://github.com/juce-framework/JUCE.git ~/JUCE
 
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
       - name: Build Visual Studio Project
         run: |
           $env:JUCE_PATH = "$env:USERPROFILE\JUCE"
