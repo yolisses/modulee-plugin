@@ -26,6 +26,9 @@ jobs:
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v2
 
+      - name: Restore NuGet Packages
+        run: nuget restore Builds/VisualStudio2022/packages.config -SolutionDirectory Builds/VisualStudio2022
+
       - name: Build Visual Studio Project
         run: msbuild Builds/VisualStudio2022/Modulee.sln /p:Configuration=Release /p:Platform=x64
 
